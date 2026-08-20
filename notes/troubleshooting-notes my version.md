@@ -1,4 +1,4 @@
-# Troubleshooting Notes — Lab 56 Sensitive File Access Investigation
+# Troubleshooting Notes 
 
 ## 1. Sysmon Event ID 11 Was Not Available
 
@@ -295,54 +295,3 @@ Using both methods made the investigation more flexible.
 
 ---
 
-# Key Troubleshooting Lessons
-
-## 1. Do Not Depend on One Artifact
-
-A sensitive-file investigation should survive the absence of a single event source.
-
-## 2. File Access Is Not File Theft
-
-Opening or reading a file is only the first stage of a possible collection chain.
-
-## 3. Staging Is More Significant Than Simple Access
-
-Creating a local copy gives the analyst stronger evidence of collection behavior.
-
-## 4. Exfiltration Requires Separate Evidence
-
-Network connectivity alone does not prove that the sensitive data was transmitted.
-
-## 5. Preserve File State
-
-Hashes and metadata collected before and after an operation can help determine whether contents changed.
-
-## 6. Document Telemetry Gaps
-
-The absence of Sysmon Event ID 11 was treated as a limitation rather than evidence that no file copy occurred.
-
----
-
-# Final Lesson
-
-The central troubleshooting lesson from Lab 56 is that sensitive-file investigations require evidence correlation.
-
-The investigator must move from:
-
-    File Access
-
-to:
-
-    Process Attribution
-
-to:
-
-    Local Collection
-
-to:
-
-    Network Analysis
-
-before making a conclusion about data theft.
-
-Missing Event ID 11 did not invalidate the investigation because the available process, PowerShell, Security, network, and filesystem evidence provided alternative ways to reconstruct the controlled activity.
